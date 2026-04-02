@@ -1,0 +1,10 @@
+services:
+  trainer:
+    build: .
+    volumes:
+      - ./data:/training/data          # your image folders (available/ occupied/)
+      - ./out:/training/out            # model.tflite + model.h written here
+    environment:
+      - PYTHONUNBUFFERED=1
+    # Pass your Roboflow key:  docker compose run trainer --api-key YOUR_KEY
+    # Local data only:         docker compose run trainer
